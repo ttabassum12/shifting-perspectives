@@ -4,8 +4,6 @@ import datetime
 import optuna
 import torch
 from transformers import AutoTokenizer
-# import pandas as pd
-# from datasets import load_dataset
 from dialz import Dataset, ControlModel, ControlVector
 from code.data_loader import datasets
 
@@ -30,13 +28,6 @@ if not model_short_name:
     raise ValueError(f"Unknown model name: {model_name}")
 
 timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M")  # e.g., "20250120_1430"
-
-# print("Loading MMLU dataset...")
-# mmlu = load_dataset("cais/mmlu", "all", split="test")
-# print("Processing MMLU dataset...")
-# full_df = pd.DataFrame(mmlu)
-# # Get an equal sample from all subjects up to roughly 1000 questions
-# mmlu_df = full_df.groupby('subject').sample(n=1000 // full_df['subject'].nunique(), random_state=42).reset_index(drop=True)
 
 # Load Tokenizer
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -288,7 +279,4 @@ def run_bayes_optimization(bbq_df, axis):
     print(f"  Params: {best_trial.params}")
 
 for dataset in datasets:
-    if model_name == "Qwen/Qwen2.5-7B-Instruct" and dataset[1] in ["age", "appearance", "disability"]:
-        pass
-    else:
-        run_bayes_optimization(dataset[0], axis=dataset[1])
+    run_bayes_optimization(dataset[0], axis=dataset[1])

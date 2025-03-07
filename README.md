@@ -1,66 +1,55 @@
 ## Shifting Perspectives: Steering Vector Ensembles for Robust Bias Mitigation in LLMs
 
-<!-- 
-Paper: https://arxiv.org/pdf/2407.06917
+Paper: \< arxiv link pending >
 
-This paper introduces **GlobalBias**, a dataset of **876k sentences** incorporating **40 distinct gender-by-ethnicity groups** alongside descriptors typically used in bias literature, which enables us to study a broad set of stereotypes from around the world. 
+This paper presents a novel approach to bias mitigation in large language models (LLMs) by applying steering vectors to modify model activations in forward passes. 
 
-We use GlobalBias to **directly probe a suite of LMs via perplexity**, which we use as a proxy to determine how certain stereotypes are represented in the model's internal representations. Following this, we **generate character profiles based on given names** and evaluate the prevalence of stereotypes in model outputs. 
+We employ Bayesian optimization to systematically identify effective contrastive pair datasets across nine bias axes. We also introduce Steering Vector Ensembles (SVE), a method that averages multiple individually optimized steering vectors, each targeting a specific bias axis such as age, race, or gender.
 
-### Installation and setup
+The work presents the first systematic investigation of steering vectors for bias mitigation, and we demonstrate that SVE is a powerful and computationally efficient strategy for reducing bias in LLMs, with broader implications for enhancing AI safety.
+
+
+### Installation and Setup
 
 After you clone this repository:
 
-- Navigate to it using `cd GlobalBias`
-- To create an environment with all necessary dependencies use:
-     `conda env create -f environment.yml`
-- Activate the environment with `conda activate globalbias`
+- Navigate to it using:
+  ```bash
+  cd shifting-perspectives
+  ```
+- (Optional but recommended) Create a virtual environment:
+  ```bash
+  python -m venv venv
+  source venv/bin/activate  # On macOS/Linux
+  venv\Scripts\activate  # On Windows
+  ```
+- Install the required dependencies:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
-### Building the GlobalBias dataset
-
-You can build the GlobalBias dataset using:
-
-`python code/0_build_globalbias.py`
-
-To reproduce results from scratch, you can download the seed dataset for proper names here:
-
-[Torvik, Vetle (2018): Genni + Ethnea for the Author-ity 2009 dataset.](https://databank.illinois.edu/datasets/IDB-9087546)
-
-Everything else you need is in the code and data folders.
 
 ### Repo Walkthrough
 
-To build the dataset from scratch, install the [Genni + Ethnea dataset](https://databank.illinois.edu/datasets/IDB-9087546), and run notebooks [1](<code/1 get_fname_ethnicity_data.ipynb>), [2](<code/2 get_embeddings.ipynb>), [3](<code/3 clustering.ipynb>) and [4](<code/4 full_templates.ipynb>).
+The data folder contains the BBQ dataset, for convenience. The dataset is from the [BBQ repo](https://github.com/nyu-mll/BBQ). Results can be found in [results](<results>).
 
-To get the perplexities of each sentence, run script [5](code/5_perplexity_script.py). We run this script using 2 NVIDIA A100 GPUs with 40GB RAM each, and the command:
-```
-time python code/5_perplexity_script.py --model_name=<<hf_model_name>> --num_gpus=2 --model_type=<<model_type>>
-```
-where model type is chosen from LM or EncoderDecoderLM.
+In the code folder, scripts are numbered in the order they should be run. Scripts [1_bbq_baselines.py](<code/1_bbq_baselines.py>) and [2_mmlu_baselines.py](code/2_mmlu_baselines.py) generate the baseline results, and there are corresponding bash files to run these for all three models. Script [3_steering_optimisation.py](<code/3_steering_optimisation.py>) runs the Bayesian Optimization process for each axis of the BBQ dataset and logs all trials, with the best trial logged again at the end of the file. An example log from a trial can be found in [logs](<logs>). This also has a corresponding bash script to run the script for all three models.
 
-To reproduce results in section 4, run notebooks [6](<code/6 gp_evaluation.ipynb>) and [7](<code/7 gp_mrr.ipynb>). To reproduce results in section 5, run notebook [8](<code/8 hb_evaluation.ipynb>).
+Files [4_evaluation.py](<code/4_evaluation.py>) and [6_avg_improvements.py](<code/6_avg_improvements.py>) simply load results and print tables used in the paper. Script [5_get_full_steered.py](<code/5_get_full_steered.py>) calculates and saves results used in Tables 2, 3 and 4 in the paper. All code was run on an Nvidia RTX 6000 Ada GPU (50GB RAM).
 
-The generation task outputs for this paper can be found in 'data/10a_..._full.csv'. Code in notebooks [9a](<code/9a openai_generation_output.ipynb>), [9b](<code/9b llama_generation_output.ipynb>) and [9c](<code/9c claude_generation_output.ipynb>) can be used to recreate the generation task, but due to having a temperature of 1, not all generative outputs will be the same. Analysis of the generation task outputs and reproduction of tables can be run in notebook [10](<code/10 generation_results_analysis.ipynb>).
+Finally, graphs used in the paper are generated in the two notebooks in the home directory of the repo.
 
-**Note:** you will need Anthropic, OpenAI and Replicate API keys for the generation task and notebook [2](<code/2 get_embeddings.ipynb>). An example can be found in [.env.example](.env.example).
+**Note:** You are likely to need a HuggingFace token in a .env file, as access to some of the models used have gated access. An example can be found in [.env.example](.env.example).
+
 
 ### Novel Contributions
 
-- the GlobalBias dataset for studying harmful stereotypes, which consists of 876,000 sentences for 40 distinct gender-by-ethnicity
-groups
-- an analysis of which stereotypes are surfaced
-for each group by a number of LMs, and
-the extent and nature of harm caused by the
-these stereotypes, particularly for intersectional groups
-- the finding that larger models have more
-stereotypical outputs, even when explicitly instructed to avoid stereotypes and clichés
-- the finding that bias stays consistent across
-model’s internal representation and outputs,
-contrary to claims in previous work in the
-field -->
+- the first application of steering vectors to social biases such as racial, gender, socioeconomic and age biases,
+- a framework to systematically identify effective contrastive datasets via Bayesian optimization, enhancing the robustness of previous activation steering methods,
+- and Steering Vector Ensembles (SVE), a method for modifying activations in forward passes by combining individually tuned steering vectors.
 
-<!-- ### Citing GlobalBias
-If you use GlobalBias in your research, please use the following bib entry to cite the [reference paper](https://aclanthology.org/2024.emnlp-main.1035/).
+<!-- ### Citing Shifting Perspectives
+If you use Shifting Perspectives in your research, please use the following bib entry to cite the [reference paper](https://aclanthology.org/2024.emnlp-main.1035/).
 ```
 @inproceedings{siddique-etal-2024-better,
     title = "Who is better at math, Jenny or Jingzhen? Uncovering Stereotypes in Large Language Models",
