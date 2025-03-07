@@ -1,5 +1,6 @@
-## Who is better at math, Jenny or Jingzhen? Exploring Intersectional Biases in Large Language Models
+## Shifting Perspectives: Steering Vector Ensembles for Robust Bias Mitigation in LLMs
 
+<!-- 
 Paper: https://arxiv.org/pdf/2407.06917
 
 This paper introduces **GlobalBias**, a dataset of **876k sentences** incorporating **40 distinct gender-by-ethnicity groups** alongside descriptors typically used in bias literature, which enables us to study a broad set of stereotypes from around the world. 
@@ -56,6 +57,23 @@ stereotypical outputs, even when explicitly instructed to avoid stereotypes and 
 - the finding that bias stays consistent across
 model’s internal representation and outputs,
 contrary to claims in previous work in the
-field
+field -->
 
-### Citing GlobalBias
+<!-- ### Citing GlobalBias
+If you use GlobalBias in your research, please use the following bib entry to cite the [reference paper](https://aclanthology.org/2024.emnlp-main.1035/).
+```
+@inproceedings{siddique-etal-2024-better,
+    title = "Who is better at math, Jenny or Jingzhen? Uncovering Stereotypes in Large Language Models",
+    author = "Siddique, Zara  and Turner, Liam  and Espinosa-Anke, Luis",
+    editor = "Al-Onaizan, Yaser  and Bansal, Mohit  and Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.emnlp-main.1035/",
+    doi = "10.18653/v1/2024.emnlp-main.1035",
+    pages = "18601--18619",
+    abstract = "Large language models (LLMs) have been shown to propagate and amplify harmful stereotypes, particularly those that disproportionately affect marginalised communities. To understand the effect of these stereotypes more comprehensively, we introduce GlobalBias, a dataset of 876k sentences incorporating 40 distinct gender-by-ethnicity groups alongside descriptors typically used in bias literature, which enables us to study a broad set of stereotypes from around the world. We use GlobalBias to directly probe a suite of LMs via perplexity, which we use as a proxy to determine how certain stereotypes are represented in the model's internal representations. Following this, we generate character profiles based on given names and evaluate the prevalence of stereotypes in model outputs. We find that the demographic groups associated with various stereotypes remain consistent across model likelihoods and model outputs. Furthermore, larger models consistently display higher levels of stereotypical outputs, even when explicitly instructed not to."
+}
+``` -->
