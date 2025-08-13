@@ -5,5 +5,5 @@ disability,train+prompt,0.593,14
 gender,train+prompt,0.507,13
 nationality,train+prompt,0.477,13
 race,train+prompt,0.557,14
-religion,train+prompt,0.67,3
-socioeconomic,train+prompt,0.713,3
+religion,train+prompt,0.637,13
+socioeconomic,train+prompt,0.7,13

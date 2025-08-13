@@ -1,9 +1,0 @@
-axis,vector_type,layer,coeff,bbq_accuracy,mmlu_accuracy,bbq_s_dis,bbq_s_amb,mmlu_total_questions,mmlu_correct_answers,stereoset_skipped,crows_error,clear_bias_skipped,crows_skipped,stereoset_error
-age,train,13,1.8,0.6266666666666667,0.43653250773993807,0.432,0.167,969,423,True,'Tensor' object has no attribute 'bos_token_id',True,,
-appearance,generate_ss,6,1.0,0.5483333333333333,0.4850361197110423,-0.037,-0.018,969,470,True,,True,True,
-disability,train,14,1.6,0.6783333333333333,0.46233230134158926,0.46,0.163,969,448,True,,True,True,
-gender,generate_qa,13,1.6,0.573,0.47678018575851394,,,969,462,,'Tensor' object has no attribute 'bos_token_id',,,"string indices must be integers, not 'str'"
-nationality,generate_ss,9,1.0,0.575,0.478844169246646,0.35,0.207,969,464,True,'Tensor' object has no attribute 'bos_token_id',True,,
-race,train+prompt,14,2.0,0.645,0.47058823529411764,0.509,0.204,969,456,,'Tensor' object has no attribute 'bos_token_id',,,"string indices must be integers, not 'str'"
-religion,train+prompt,13,1.6,0.58,0.47368421052631576,0.156,0.073,969,459,,'Tensor' object has no attribute 'bos_token_id',True,,"string indices must be integers, not 'str'"
-socioeconomic,train+prompt,13,1.6,0.6533333333333333,0.45717234262125905,0.096,0.028,969,443,True,'Tensor' object has no attribute 'bos_token_id',True,,

@@ -1,9 +1,0 @@
-axis,vt,max_acc,max_layer
-age,generate_qa,0.48,10
-appearance,generate_qa,0.533,21
-disability,generate_qa,0.57,13
-gender,generate_qa,0.537,13
-nationality,generate_qa,0.497,4
-race,generate_qa,0.52,9
-religion,generate_qa,0.62,9
-socioeconomic,generate_qa,0.68,6
