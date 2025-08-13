@@ -1,0 +1,9 @@
+axis,vector_type,layer,coeff,bbq_accuracy,mmlu_accuracy,bbq_s_dis,bbq_s_amb,mmlu_total_questions,mmlu_correct_answers,stereoset_skipped,crows_error,clear_bias_skipped,crows_skipped,stereoset_error
+age,train,3,1.0,0.5383333333333333,0.34262125902992774,-0.474,-0.191,969,332,True,'SteeringModel' object has no attribute 'forward_with_steering',True,,
+appearance,generate_ss,6,1.0,0.5483333333333333,0.4850361197110423,-0.037,-0.018,969,470,True,,True,True,
+disability,train,14,1.6,0.6783333333333333,0.46233230134158926,0.46,0.163,969,448,True,,True,True,
+gender,generate_qa,13,1.6,0.573,0.47678018575851394,,,969,462,,'SteeringModel' object has no attribute 'forward_with_steering',,,run_stereoset_evaluation() takes 4 positional arguments but 5 were given
+nationality,generate_ss,9,1.0,0.575,0.478844169246646,0.35,0.207,969,464,True,'SteeringModel' object has no attribute 'forward_with_steering',True,,
+race,train,3,0.8,0.6183333333333333,0.4262125902992776,0.294,0.129,969,413,,'SteeringModel' object has no attribute 'forward_with_steering',,,run_stereoset_evaluation() takes 4 positional arguments but 5 were given
+religion,train,3,0.8,0.6466666666666666,0.4055727554179567,0.298,0.125,969,393,,'SteeringModel' object has no attribute 'forward_with_steering',True,,run_stereoset_evaluation() takes 4 positional arguments but 5 were given
+socioeconomic,train+prompt,3,1.0,0.713,0.3333333333333333,,,969,323,True,'SteeringModel' object has no attribute 'forward_with_steering',True,,

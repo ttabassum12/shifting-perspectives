@@ -1,0 +1,9 @@
+axis,vector_type,layer,coeff,bbq_accuracy,mmlu_accuracy
+age,generate_qa,10,2.0,0.58,0.412
+appearance,generate_qa,21,1.2,0.537,0.492
+disability,generate_qa,13,2.0,0.633,0.437
+gender,generate_qa,13,1.6,0.573,0.469
+nationality,generate_qa,14,2.0,0.487,0.491
+race,generate_qa,9,1.4,0.54,0.41
+religion,generate_qa,9,1.4,0.64,0.401
+socioeconomic,generate_qa,6,1.6,0.727,0.44

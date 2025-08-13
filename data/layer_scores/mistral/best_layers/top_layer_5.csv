@@ -1,0 +1,9 @@
+axis,vt,max_acc,max_layer
+age,train,0.55,13
+appearance,generate_ss,0.597,6
+disability,train,0.61,14
+gender,generate_qa,0.537,13
+nationality,generate_ss,0.51,9
+race,train+prompt,0.557,14
+religion,train+prompt,0.637,13
+socioeconomic,train+prompt,0.7,13
