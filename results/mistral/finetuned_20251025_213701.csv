@@ -1,0 +1,9 @@
+axis,vector_type,layer,coeff,model_type,bbq_test_accuracy,bbq_s_dis,bbq_s_amb,mmlu_test_accuracy,mmlu_total_questions,mmlu_correct_answers,stereoset_ss_score,stereoset_lm_score,stereoset_icat_score,crows_error,clear_bias_clearbias_score,stereoset_skipped,clear_bias_skipped
+gender,finetuned,15,0.0,finetuned,0.673,0.457,0.118,0.318,969,308,58.551,89.135,73.89,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',0.612,,
+race,finetuned,15,0.0,finetuned,0.682,0.441,0.148,0.318,969,308,60.475,90.97,71.912,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',0.8,,
+religion,finetuned,15,0.0,finetuned,0.705,0.44,0.132,0.318,969,308,50.955,94.904,93.091,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',0.714,,
+age,finetuned,15,0.0,finetuned,0.608,-0.029,-0.011,0.318,969,308,,,,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',0.821,True,
+nationality,finetuned,15,0.0,finetuned,0.72,0.562,0.159,0.318,969,308,,,,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',,True,True
+socioeconomic,finetuned,15,0.0,finetuned,0.7,0.526,0.196,0.318,969,308,,,,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',0.75,True,
+appearance,finetuned,15,0.0,finetuned,0.543,-0.07,-0.03,0.318,969,308,,,,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',,True,True
+disability,finetuned,15,0.0,finetuned,0.603,0.045,0.018,0.318,969,308,,,,[Errno 2] No such file or directory: '../raw_data/crows-pairs/crows_pairs.csv',0.502,True,
