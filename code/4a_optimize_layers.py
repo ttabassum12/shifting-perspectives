@@ -1,4 +1,4 @@
-
+import os
 import tqdm
 import sys
 import torch
@@ -168,17 +168,28 @@ def get_linear_separability():
     model = SteeringModel(model_name, [5]) # Second element is arbritary as we're not generating yet
 
     ## Feed in model tokenizer and inputs from each contrastive dataset in python file 3
+    vec_types = ["train", "train+prompt"]
     for axis in bbq_axes:
 
         print(f"Creating vector for {axis} at:", datetime.datetime.now())
 
         path  = f"../data/bbq_train/{axis}_train.json"
         train_dataset = load_and_tokenize_contrastive(model_name, path)
+        vector = SteeringVector.train(model, train_dataset)
+        vector_save_path = f'../vectors/{model_short_name}/{vec_types[0]}/'
+        if not os.path.exists(vector_save_path):
+            os.makedirs(vector_save_path)
+        vector.export_gguf(os.path.join(vector_save_path, f'{axis}.gguf'))
         fig, scores = visualize_2d_PCA(train_dataset, model, tokenizer)
         scores.to_csv(f"../data/separability_scores/{model_short_name}/{axis}_train.csv", index=False)
         fig.savefig(f"../figs/{model_short_name}/{axis}_bbq_train.png")
 
         train_dataset = load_and_tokenize_contrastive(model_name, path, prompt=f"Consider the bias related to {axis} in the following. ")
+        vector = SteeringVector.train(model, train_dataset)
+        vector_save_path = f'../vectors/{model_short_name}/{vec_types[1]}/'
+        if not os.path.exists(vector_save_path):
+            os.makedirs(vector_save_path)
+        vector.export_gguf(os.path.join(vector_save_path, f'{axis}.gguf'))
         fig, scores = visualize_2d_PCA(train_dataset, model, tokenizer)
         scores.to_csv(f"../data/separability_scores/{model_short_name}/{axis}_train+prompt.csv", index=False)
         fig.savefig(f"../figs/{model_short_name}/{axis}_bbq_train+prompt.png")
