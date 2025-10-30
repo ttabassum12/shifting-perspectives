@@ -281,4 +281,4 @@ def get_acc_change_per_layer():
 
 
 get_linear_separability()
-# get_acc_change_per_layer()
+get_acc_change_per_layer()
